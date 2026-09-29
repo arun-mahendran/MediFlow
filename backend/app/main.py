@@ -8,29 +8,29 @@ from app.services.seed import run_seed
 
 app = FastAPI(title="MediFlow API")
 
-# allowed_origins = {settings.FRONTEND_URL, "http://localhost:5173"}
-
-# app.add_middleware(
-#     CORSMiddleware,
-#     allow_origins=list(allowed_origins),
-#     allow_credentials=True,
-#     allow_methods=["*"],
-#     allow_headers=["*"],
-# )
-
-allowed_origins = [
-    settings.FRONTEND_URL,
-    "https://mediflow-frontend-three.vercel.app",
-    "http://localhost:5173",
-]
+allowed_origins = {settings.FRONTEND_URL, "http://localhost:5173"}
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=allowed_origins,
+    allow_origins=list(allowed_origins),
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# allowed_origins = [
+#     settings.FRONTEND_URL,
+#     "https://mediflow-frontend-three.vercel.app",
+#     "http://localhost:5173",
+# ]
+
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=allowed_origins,
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"],
+# )
 
 
 @app.on_event("startup")
