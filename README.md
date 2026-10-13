@@ -66,7 +66,3 @@ reason. Gemini is called from FastAPI only — the key is never exposed to the b
 Deterministic score combining urgency weight (Emergency > High > Medium > Low) and
 minutes waited, so urgent cases jump ahead while long-waiting patients still advance.
 
-## Notes
-
-- No Supabase, no client-side database access. All data goes through the REST API.
-- Never commit real `.env` files; only `.env.example` is included.
